@@ -19,7 +19,16 @@
   <td>
     {% if peer.gpu %}
       {% for g in peer.gpu %}
-        <div class="gpu-chip">{{ g.name }} {{ g.vram_free_gb }}GB free</div>
+        <div class="gpu-chip">{{ g.name }} · {{ g.vram_free_gb }}GB free</div>
+      {% endfor %}
+    {% else %}
+      <span class="muted">—</span>
+    {% endif %}
+  </td>
+  <td>
+    {% if peer.backends %}
+      {% for b in peer.backends %}
+        <span class="backend-tag backend-{{ b.type }}">{{ b.type }}</span>
       {% endfor %}
     {% else %}
       <span class="muted">—</span>
@@ -30,5 +39,5 @@
   </td>
 </tr>
 {% else %}
-<tr><td colspan="5" class="muted center">No peers discovered yet — probing every 30s</td></tr>
+<tr><td colspan="6" class="muted center">No peers discovered yet — probing every 30s</td></tr>
 {% endfor %}

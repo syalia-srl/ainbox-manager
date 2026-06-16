@@ -1,17 +1,17 @@
-import os
 import socket
 
+_VERSION = "0.2.0"
 
-_VERSION = "0.1.0"
 
-
-def get_status() -> dict:
+def get_status(backends: list[dict] | None = None) -> dict:
+    backends = backends or []
+    all_models = [m for b in backends for m in b.get("models", [])]
     return {
         "hostname": socket.gethostname(),
         "version": _VERSION,
         "gpu": _gpu_info(),
-        "backends": [],
-        "models": [],
+        "backends": backends,
+        "models": all_models,
     }
 
 

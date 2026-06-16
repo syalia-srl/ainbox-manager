@@ -15,75 +15,28 @@
       --accent: #6c63ff;
       --green: #22c55e;
       --red: #ef4444;
+      --orange: #f97316;
+      --blue: #3b82f6;
       --text: #e2e8f0;
       --muted: #64748b;
       --mono: "JetBrains Mono", "Fira Mono", monospace;
     }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 14px;
-      min-height: 100vh;
-    }
+    body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; font-size: 14px; min-height: 100vh; }
 
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 16px 32px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    header .logo {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-
+    header { border-bottom: 1px solid var(--border); padding: 16px 32px; display: flex; align-items: center; gap: 12px; }
+    header .logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
     header .logo span { color: var(--accent); }
-
-    header .tag {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2px 8px;
-      font-size: 11px;
-      color: var(--muted);
-      font-family: var(--mono);
-    }
-
+    header .tag { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-size: 11px; color: var(--muted); font-family: var(--mono); }
     header .spacer { flex: 1; }
+    header .probe-label { font-size: 12px; color: var(--muted); }
 
-    header .probe-label {
-      font-size: 12px;
-      color: var(--muted);
-    }
+    main { padding: 32px; max-width: 1200px; margin: 0 auto; }
 
-    main { padding: 32px; max-width: 1100px; margin: 0 auto; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 32px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px 24px;
-    }
-
-    .card h3 {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; }
+    .card h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 12px; }
 
     .stat-big { font-size: 32px; font-weight: 700; }
     .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
@@ -93,140 +46,93 @@
     .node-info .key { color: var(--muted); width: 90px; flex-shrink: 0; font-size: 12px; }
     .node-info .val { font-family: var(--mono); font-size: 13px; }
 
-    .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .section-header h2 { font-size: 14px; font-weight: 600; }
+    .section-header .hint { font-size: 12px; color: var(--muted); }
 
-    .section-header h2 {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .section-header .hint {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th {
-      text-align: left;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--muted);
-      padding: 8px 12px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    td {
-      padding: 12px 12px;
-      border-bottom: 1px solid var(--border);
-      vertical-align: middle;
-    }
-
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding: 8px 12px; border-bottom: 1px solid var(--border); }
+    td { padding: 12px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
     tr:last-child td { border-bottom: none; }
 
-    .dot {
-      display: inline-block;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      margin-right: 8px;
-      flex-shrink: 0;
-    }
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; flex-shrink: 0; }
     .dot-online { background: var(--green); box-shadow: 0 0 6px var(--green); }
     .dot-offline { background: var(--red); }
 
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 600;
-    }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
     .badge-online { background: rgba(34,197,94,.15); color: var(--green); }
     .badge-offline { background: rgba(239,68,68,.12); color: var(--red); }
 
-    .gpu-chip {
-      display: inline-block;
-      background: rgba(108,99,255,.15);
-      color: var(--accent);
-      border: 1px solid rgba(108,99,255,.3);
-      border-radius: 4px;
-      padding: 2px 8px;
-      font-size: 12px;
-      font-family: var(--mono);
-      margin: 2px 2px 2px 0;
-    }
+    .backend-tag { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-right: 4px; }
+    .backend-ollama { background: rgba(249,115,22,.15); color: var(--orange); border: 1px solid rgba(249,115,22,.3); }
+    .backend-vllm { background: rgba(59,130,246,.15); color: var(--blue); border: 1px solid rgba(59,130,246,.3); }
+
+    .gpu-chip { display: inline-block; background: rgba(108,99,255,.15); color: var(--accent); border: 1px solid rgba(108,99,255,.3); border-radius: 4px; padding: 2px 8px; font-size: 12px; font-family: var(--mono); margin: 2px 2px 2px 0; }
 
     .mono { font-family: var(--mono); font-size: 13px; }
     .muted { color: var(--muted); }
     .center { text-align: center; }
 
-    .models-section { margin-top: 32px; }
+    /* Model catalog */
+    .catalog-section { margin-top: 32px; }
+    .node-catalog { margin-bottom: 20px; }
+    .node-catalog-header { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px 8px 0 0; cursor: pointer; }
+    .node-catalog-body { border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; overflow: hidden; }
 
-    .empty-state {
-      background: var(--surface);
-      border: 1px dashed var(--border);
-      border-radius: 8px;
-      padding: 40px;
-      text-align: center;
-      color: var(--muted);
-      line-height: 1.8;
-    }
+    .model-row { display: flex; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--border); gap: 12px; }
+    .model-row:last-child { border-bottom: none; }
+    .model-name { font-family: var(--mono); font-size: 13px; flex: 1; }
+    .running-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 5px var(--green); display: inline-block; margin-right: 6px; }
 
-    .empty-state code {
-      font-family: var(--mono);
-      font-size: 13px;
-      background: var(--bg);
-      padding: 2px 6px;
-      border-radius: 3px;
-    }
+    .btn { padding: 5px 12px; border-radius: 4px; border: none; cursor: pointer; font-size: 12px; font-weight: 600; }
+    .btn-danger { background: rgba(239,68,68,.15); color: var(--red); border: 1px solid rgba(239,68,68,.3); }
+    .btn-danger:hover { background: rgba(239,68,68,.25); }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 
-    footer {
-      margin-top: 48px;
-      padding: 16px 0;
-      border-top: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
-      gap: 24px;
-    }
+    .pull-form { display: flex; gap: 8px; padding: 12px 16px; background: rgba(108,99,255,.05); border-top: 1px solid var(--border); }
+    .pull-form input { flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; color: var(--text); font-family: var(--mono); font-size: 13px; }
+    .pull-form input:focus { outline: none; border-color: var(--accent); }
 
+    .pull-progress { padding: 8px 16px; font-size: 12px; font-family: var(--mono); color: var(--muted); border-top: 1px solid var(--border); display: none; }
+    .pull-progress.active { display: block; }
+    .pull-progress .bar-track { background: var(--border); border-radius: 2px; height: 4px; margin-top: 6px; }
+    .pull-progress .bar-fill { background: var(--accent); height: 4px; border-radius: 2px; transition: width 0.3s; }
+
+    .empty-state { background: var(--surface); border: 1px dashed var(--border); border-radius: 8px; padding: 40px; text-align: center; color: var(--muted); line-height: 1.8; }
+    .empty-state code { font-family: var(--mono); font-size: 13px; background: var(--bg); padding: 2px 6px; border-radius: 3px; }
+
+    footer { margin-top: 48px; padding: 16px 0; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); display: flex; gap: 24px; }
     footer a { color: var(--accent); text-decoration: none; }
   </style>
 </head>
 <body>
 <header>
   <div class="logo">ainbox<span>-manager</span></div>
-  <div class="tag">v0.1.0</div>
+  <div class="tag">v0.2.0</div>
   <div class="spacer"></div>
-  <div class="probe-label">mesh probe every 30s</div>
+  <div class="probe-label">mesh probe every 30s · backends every 15s</div>
 </header>
 
 <main>
-  <!-- Top stats row -->
   <div class="grid-2">
     <div class="card">
       <h3>This Node</h3>
       <div class="node-info">
+        <div class="row"><span class="key">hostname</span><span class="val">{{ this_node.hostname }}</span></div>
+        <div class="row"><span class="key">version</span><span class="val">{{ this_node.version }}</span></div>
         <div class="row">
-          <span class="key">hostname</span>
-          <span class="val">{{ this_node.hostname }}</span>
-        </div>
-        <div class="row">
-          <span class="key">version</span>
-          <span class="val">{{ this_node.version }}</span>
-        </div>
-        <div class="row">
-          <span class="key">mesh port</span>
-          <span class="val">7860</span>
+          <span class="key">backends</span>
+          <span class="val">
+            {% if this_node.backends %}
+              {% for b in this_node.backends %}
+                <span class="backend-tag backend-{{ b.type }}">{{ b.type }}</span>
+              {% endfor %}
+            {% else %}
+              <span class="muted">none detected</span>
+            {% endif %}
+          </span>
         </div>
         <div class="row">
           <span class="key">gpu</span>
@@ -248,27 +154,31 @@
       <div style="display:flex; gap:32px; align-items:flex-end; margin-top:8px">
         <div>
           <div class="stat-big">{{ peers | selectattr("reachable") | list | length }}</div>
-          <div class="stat-label">nodes online</div>
+          <div class="stat-label">peers online</div>
         </div>
         <div>
-          <div class="stat-big">{{ peers | sum(attribute="models", start=[]) | list | length }}</div>
-          <div class="stat-label">models loaded</div>
+          {% set total = this_node.models | length %}
+          {% for p in peers %}{% if p.reachable %}{% set total = total + (p.models | length) %}{% endif %}{% endfor %}
+          <div class="stat-big">{{ total }}</div>
+          <div class="stat-label">models in mesh</div>
         </div>
         <div>
-          <div class="stat-big">{{ peers | selectattr("gpu") | list | length }}</div>
-          <div class="stat-label">gpu nodes</div>
+          {% set gpu_count = this_node.gpu | length %}
+          {% for p in peers %}{% if p.reachable %}{% set gpu_count = gpu_count + (p.gpu | length) %}{% endif %}{% endfor %}
+          <div class="stat-big">{{ gpu_count }}</div>
+          <div class="stat-label">gpus</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Peers table -->
+  <!-- Nodes table -->
   <div class="section-header">
     <h2>Mesh Nodes</h2>
     <span class="hint">auto-refreshes every 10s</span>
   </div>
 
-  <div class="card" style="padding:0; overflow:hidden;">
+  <div class="card" style="padding:0; overflow:hidden; margin-bottom:32px;">
     <table>
       <thead>
         <tr>
@@ -276,69 +186,208 @@
           <th>Tailscale IP</th>
           <th>Status</th>
           <th>GPU</th>
+          <th>Backends</th>
           <th>Models</th>
         </tr>
       </thead>
-      <tbody
-        id="peers-body"
-        hx-get="/mesh/peers/fragment"
-        hx-trigger="every 10s"
-        hx-swap="innerHTML"
-      >
+      <tbody id="peers-body" hx-get="/mesh/peers/fragment" hx-trigger="every 10s" hx-swap="innerHTML">
         {% include "peers_fragment.html" %}
       </tbody>
     </table>
   </div>
 
-  <!-- Models section -->
-  <div class="models-section">
+  <!-- Model catalog -->
+  <div class="catalog-section">
     <div class="section-header">
-      <h2>Available Models</h2>
-      <span class="hint">OpenAI-compatible at <code>/v1/models</code></span>
+      <h2>Model Catalog</h2>
+      <span class="hint">manage models per node · OpenAI API at <code style="font-family:var(--mono);background:var(--surface);padding:2px 6px;border-radius:3px;">/v1/chat/completions</code></span>
     </div>
 
-    {% set all_models = [] %}
+    {% set all_nodes = [this_node] + peers | selectattr("reachable") | list %}
+    {% set ns = namespace(shown=0) %}
+
+    {# This node #}
+    {% if this_node.backends %}
+      {% set ns.shown = ns.shown + 1 %}
+      <div class="node-catalog">
+        <div class="node-catalog-header">
+          <span class="dot dot-online"></span>
+          <strong>{{ this_node.hostname }}</strong>
+          <span class="muted" style="font-size:12px;">this node</span>
+          {% for b in this_node.backends %}
+            <span class="backend-tag backend-{{ b.type }}">{{ b.type }} · {{ b.models | length }} models</span>
+          {% endfor %}
+        </div>
+        <div class="node-catalog-body">
+          {% for b in this_node.backends %}
+            {% if b.type == "ollama" %}
+              {% for m in b.models %}
+                <div class="model-row">
+                  {% if m in b.running %}<span class="running-dot" title="loaded in VRAM"></span>{% endif %}
+                  <span class="model-name">{{ m }}</span>
+                  <span class="backend-tag backend-ollama">ollama</span>
+                  <button class="btn btn-danger" onclick="deleteModel('localhost', '{{ m }}', this)">Delete</button>
+                </div>
+              {% else %}
+                <div class="model-row"><span class="muted">No models downloaded yet</span></div>
+              {% endfor %}
+              <div class="pull-form">
+                <input id="pull-local" placeholder="e.g. llama3.2:3b · gemma3:4b · qwen3:8b" />
+                <button class="btn btn-primary" onclick="pullModel('localhost', document.getElementById('pull-local').value, 'local')">Pull</button>
+              </div>
+              <div class="pull-progress" id="pull-progress-local">
+                <span id="pull-status-local"></span>
+                <div class="bar-track"><div class="bar-fill" id="pull-bar-local" style="width:0%"></div></div>
+              </div>
+            {% elif b.type == "vllm" %}
+              {% for m in b.models %}
+                <div class="model-row">
+                  <span class="running-dot" title="vLLM — always loaded"></span>
+                  <span class="model-name">{{ m }}</span>
+                  <span class="backend-tag backend-vllm">vllm</span>
+                </div>
+              {% else %}
+                <div class="model-row"><span class="muted">No models loaded</span></div>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {# Peer nodes #}
     {% for peer in peers %}
-      {% if peer.reachable %}
-        {% for m in peer.models %}
-          {% set _ = all_models.append(m) %}
-        {% endfor %}
+      {% if peer.reachable and peer.backends %}
+        {% set ns.shown = ns.shown + 1 %}
+        {% set safe_ip = peer.ip | replace(".", "-") %}
+        <div class="node-catalog">
+          <div class="node-catalog-header">
+            <span class="dot dot-online"></span>
+            <strong>{{ peer.hostname }}</strong>
+            <span class="muted mono" style="font-size:12px;">{{ peer.ip }}</span>
+            {% for b in peer.backends %}
+              <span class="backend-tag backend-{{ b.type }}">{{ b.type }} · {{ b.models | length }} models</span>
+            {% endfor %}
+          </div>
+          <div class="node-catalog-body">
+            {% for b in peer.backends %}
+              {% if b.type == "ollama" %}
+                {% for m in b.models %}
+                  <div class="model-row">
+                    {% if m in b.running %}<span class="running-dot" title="loaded in VRAM"></span>{% endif %}
+                    <span class="model-name">{{ m }}</span>
+                    <span class="backend-tag backend-ollama">ollama</span>
+                    <button class="btn btn-danger" onclick="deleteModel('{{ peer.ip }}', '{{ m }}', this)">Delete</button>
+                  </div>
+                {% else %}
+                  <div class="model-row"><span class="muted">No models downloaded yet</span></div>
+                {% endfor %}
+                <div class="pull-form">
+                  <input id="pull-{{ safe_ip }}" placeholder="e.g. llama3.2:3b · gemma3:4b" />
+                  <button class="btn btn-primary" onclick="pullModel('{{ peer.ip }}', document.getElementById('pull-{{ safe_ip }}').value, '{{ safe_ip }}')">Pull</button>
+                </div>
+                <div class="pull-progress" id="pull-progress-{{ safe_ip }}">
+                  <span id="pull-status-{{ safe_ip }}"></span>
+                  <div class="bar-track"><div class="bar-fill" id="pull-bar-{{ safe_ip }}" style="width:0%"></div></div>
+                </div>
+              {% elif b.type == "vllm" %}
+                {% for m in b.models %}
+                  <div class="model-row">
+                    <span class="running-dot" title="vLLM — always loaded"></span>
+                    <span class="model-name">{{ m }}</span>
+                    <span class="backend-tag backend-vllm">vllm</span>
+                  </div>
+                {% else %}
+                  <div class="model-row"><span class="muted">No models loaded</span></div>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
       {% endif %}
     {% endfor %}
 
-    {% if all_models %}
-      <div class="card" style="padding:0; overflow:hidden;">
-        <table>
-          <thead>
-            <tr><th>Model ID</th><th>Node</th><th>Backend</th></tr>
-          </thead>
-          <tbody>
-            {% for m in all_models %}
-              <tr>
-                <td class="mono">{{ m.id }}</td>
-                <td>{{ m._node | default("—") }}</td>
-                <td><span class="muted">{{ m.backend | default("—") }}</span></td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    {% else %}
+    {% if ns.shown == 0 %}
       <div class="empty-state">
-        No models loaded across the mesh.<br>
-        Deploy a vLLM or Ollama worker on any node and register it as a backend<br>
-        to see models appear here and at <code>POST /v1/chat/completions</code>.
+        No backends detected across the mesh.<br>
+        Start <code>ollama serve</code> or a vLLM process on any node — it will auto-appear here within 15s.
       </div>
     {% endif %}
   </div>
 </main>
 
 <footer>
-  <span>ainbox-manager 0.1.0</span>
+  <span>ainbox-manager 0.2.0</span>
   <a href="/docs">API docs</a>
-  <a href="/mesh/status">this node status</a>
-  <a href="/mesh/peers">peer list (JSON)</a>
+  <a href="/mesh/status">this node (JSON)</a>
+  <a href="/mesh/peers">peers (JSON)</a>
   <a href="/v1/models">models (JSON)</a>
+  <a href="/backends">local backends (JSON)</a>
 </footer>
+
+<script>
+async function pullModel(nodeIp, model, safeId) {
+  if (!model.trim()) return;
+  const endpoint = nodeIp === 'localhost'
+    ? '/backends/ollama/pull'
+    : `/nodes/${nodeIp}/backends/ollama/pull`;
+
+  const progressEl = document.getElementById(`pull-progress-${safeId}`);
+  const statusEl   = document.getElementById(`pull-status-${safeId}`);
+  const barEl      = document.getElementById(`pull-bar-${safeId}`);
+  progressEl.classList.add('active');
+  statusEl.textContent = `Pulling ${model}…`;
+  barEl.style.width = '0%';
+
+  try {
+    const resp = await fetch(endpoint, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({model}),
+    });
+    const reader = resp.body.getReader();
+    const dec = new TextDecoder();
+    let buf = '';
+    while (true) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, {stream: true});
+      for (const line of buf.split('\n')) {
+        buf = '';
+        if (!line.trim()) continue;
+        try {
+          const ev = JSON.parse(line);
+          if (ev.status) statusEl.textContent = ev.status;
+          if (ev.total && ev.completed) {
+            barEl.style.width = Math.round(ev.completed / ev.total * 100) + '%';
+          }
+          if (ev.status === 'success') {
+            statusEl.textContent = `✓ ${model} ready`;
+            barEl.style.width = '100%';
+            setTimeout(() => location.reload(), 1200);
+          }
+        } catch (_) { buf = line; }
+      }
+    }
+  } catch (e) {
+    statusEl.textContent = `Error: ${e.message}`;
+  }
+}
+
+async function deleteModel(nodeIp, model, btn) {
+  if (!confirm(`Delete ${model} from ${nodeIp}?`)) return;
+  btn.disabled = true;
+  btn.textContent = '…';
+  const endpoint = nodeIp === 'localhost'
+    ? `/backends/ollama/models/${encodeURIComponent(model)}`
+    : `/nodes/${nodeIp}/backends/ollama/models/${encodeURIComponent(model)}`;
+  try {
+    await fetch(endpoint, {method: 'DELETE'});
+    btn.closest('.model-row').remove();
+  } catch (e) {
+    btn.textContent = 'Error';
+  }
+}
+</script>
 </body>
 </html>

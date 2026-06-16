@@ -1,0 +1,34 @@
+{% for peer in peers %}
+<tr>
+  <td>
+    {% if peer.reachable %}
+      <span class="dot dot-online"></span>
+    {% else %}
+      <span class="dot dot-offline"></span>
+    {% endif %}
+    {{ peer.hostname }}
+  </td>
+  <td class="mono">{{ peer.ip }}</td>
+  <td>
+    {% if peer.reachable %}
+      <span class="badge badge-online">online</span>
+    {% else %}
+      <span class="badge badge-offline">unreachable</span>
+    {% endif %}
+  </td>
+  <td>
+    {% if peer.gpu %}
+      {% for g in peer.gpu %}
+        <div class="gpu-chip">{{ g.name }} {{ g.vram_free_gb }}GB free</div>
+      {% endfor %}
+    {% else %}
+      <span class="muted">—</span>
+    {% endif %}
+  </td>
+  <td>
+    {% if peer.models %}{{ peer.models | length }}{% else %}<span class="muted">0</span>{% endif %}
+  </td>
+</tr>
+{% else %}
+<tr><td colspan="5" class="muted center">No peers discovered yet — probing every 30s</td></tr>
+{% endfor %}

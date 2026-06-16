@@ -1,0 +1,19 @@
+[project]
+name = "ainbox-manager"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "httpx>=0.28",
+    "jinja2>=3.1",
+    "pynvml>=11.5",
+]
+
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.backends.legacy:build"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ainbox_manager*"]

@@ -51,12 +51,9 @@ async def dashboard(request: Request):
     this_node = node.get_status()
     peers = _discovery.peers()
     return _templates.TemplateResponse(
-        "dashboard.html",
-        {
-            "request": request,
-            "this_node": this_node,
-            "peers": peers,
-        },
+        request=request,
+        name="dashboard.html",
+        context={"this_node": this_node, "peers": peers},
     )
 
 
@@ -65,6 +62,7 @@ async def peers_fragment(request: Request):
     """HTMX partial — peers table body only."""
     peers = _discovery.peers()
     return _templates.TemplateResponse(
-        "peers_fragment.html",
-        {"request": request, "peers": peers},
+        request=request,
+        name="peers_fragment.html",
+        context={"peers": peers},
     )
